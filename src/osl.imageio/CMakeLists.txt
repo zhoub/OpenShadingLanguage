@@ -35,7 +35,11 @@ macro (add_oiio_plugin)
     # Get the name of the current directory and use it as the target name.
     get_filename_component (_target_name ${CMAKE_CURRENT_SOURCE_DIR} NAME)
     add_library (${_target_name} SHARED ${_plugin_DEFAULT_ARGS})
+<<<<<<< HEAD
     target_link_libraries (${_target_name} ${OPENIMAGEIO_LIBRARIES} ${_plugin_LINK_LIBRARIES})
+=======
+    target_link_libraries (${_target_name} oslcomp ${OPENIMAGEIO_LIBRARIES} ${_plugin_LINK_LIBRARIES})
+>>>>>>> c0497d6... Fixed build about using static OIIO.
     set_target_properties (${_target_name} PROPERTIES PREFIX "" FOLDER "Plugins")
     oiio_install_targets (${_target_name})
 endmacro ()

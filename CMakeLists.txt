@@ -92,10 +92,21 @@ option (OSL_BUILD_PLUGINS "Bool OSL plugins, for example OIIO plugin" ON)
 option (USE_BOOST_WAVE "Use Boost Wave for C preprocessor (alternative is to use clang)" OFF)
 
 
+<<<<<<< HEAD
 # set (USE_OIIO_STATIC ON CACHE BOOL "If OIIO is built static")
 # if (USE_OIIO_STATIC)
 #     add_definitions ("-DOIIO_STATIC_BUILD=1")
 # endif ()
+=======
+set (USE_OIIO_STATIC ON CACHE BOOL "If OIIO is built static")
+if (USE_OIIO_STATIC)
+    add_definitions ("-DOIIO_STATIC_BUILD=1")
+    find_package(TIFF REQUIRED)
+    find_package(JPEG REQUIRED)
+    find_package(PNG REQUIRED)
+    find_package(ZLib REQUIRED)
+endif ()
+>>>>>>> c0497d6... Fixed build about using static OIIO.
 
 set (OSL_NO_DEFAULT_TEXTURESYSTEM OFF CACHE BOOL "Do not use create a raw OIIO::TextureSystem")
 if (OSL_NO_DEFAULT_TEXTURESYSTEM)
